@@ -37,6 +37,17 @@ header strong a {
     text-decoration: none;
 }
 
+header strong img {
+    height: 40px;
+    display: block;
+}
+
+@media (max-width: 480px) {
+    header strong img {
+        height: 32px;
+    }
+}
+
 nav a {
     color: var(--color-muted);
     text-decoration: none;
