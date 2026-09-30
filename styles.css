@@ -391,6 +391,17 @@ main .note {
     color: var(--color-accent);
 }
 
+/* Evita que cualquier enlace sin estilo propio salga en el azul por
+   defecto del navegador. Usa el gris apagado y no el rojo de acento:
+   #8B0000 sobre negro solo da ~2:1 de contraste, insuficiente. */
+main a:not(.button):not(.card) {
+    color: var(--color-muted);
+}
+
+main a:not(.button):not(.card):hover {
+    color: var(--color-text);
+}
+
 .tag {
     color: var(--color-muted);
     margin: 5px 0 10px;
@@ -506,7 +517,6 @@ tbody tr:hover {
     margin-bottom: 10px;
     font-size: 15px;
 }
-
 .footer-cols a:hover {
     color: var(--color-text);
 }
