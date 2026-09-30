@@ -63,18 +63,24 @@ tráfico, no canibalizarse. Regla:
 ## Trazabilidad de WhatsApp
 
 El sitio es estático, sin backend, así que el origen del lead se registra
-con el prefill de `wa.me`. Cada enlace lleva una marca al final del
-mensaje:
+con el prefill de `wa.me`. Cada botón precarga una consulta redactada como
+la escribiría una persona, más una firma de origen en la segunda línea:
 
 ```
-Hola, quiero el plan Profesional.
-[www.page.pe/planes - Plan Profesional]
+Hola, quiero cotizar el plan Profesional.
+(via page.pe/planes / Profesional)
 ```
 
-Al recibir el mensaje ya sabes qué página y qué sección lo generaron. Si
-se agrega un botón nuevo hay que incluir su marca; el formato de la URL
-es `?text=<mensaje>%0A%5B<pagina>%20-%20%3Csecci%C3%B3n>%5D` con el texto
-URL-encoded.
+La firma va al final y es breve a propósito: el cliente no debe ver algo
+que parece un código de rastreo, pero tú tienes que poder ubicar el lead
+de un vistazo. Como `page.pe` y `page.djc.pe` comparten el mismo número,
+el prefijo `page.pe` es lo que los distingue.
+
+Al agregar un botón nuevo hay que incluir su firma. El formato es
+`?text=<mensaje>%0A%28via%20<origen>%29`, con el texto URL-encoded.
+Ojo: en PowerShell 5.1 los `.ps1` se leen como ANSI, así que hay que
+generar los acentos desde codepoints Unicode o sale doble encoding
+(`%C3%83%C2%A1`) y el cliente recibe el texto roto.
 
 ## Decisiones abiertas
 
