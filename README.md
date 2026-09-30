@@ -60,6 +60,22 @@ tráfico, no canibalizarse. Regla:
   WhatsApp y casos reales son los mismos datos. Eso no es contenido
   duplicado, es información consistente.
 
+## Trazabilidad de WhatsApp
+
+El sitio es estático, sin backend, así que el origen del lead se registra
+con el prefill de `wa.me`. Cada enlace lleva una marca al final del
+mensaje:
+
+```
+Hola, quiero el plan Profesional.
+[www.page.pe/planes - Plan Profesional]
+```
+
+Al recibir el mensaje ya sabes qué página y qué sección lo generaron. Si
+se agrega un botón nuevo hay que incluir su marca; el formato de la URL
+es `?text=<mensaje>%0A%5B<pagina>%20-%20%3Csecci%C3%B3n>%5D` con el texto
+URL-encoded.
+
 ## Decisiones abiertas
 
 - Contexto de venta: visita presencial + landing como respaldo
