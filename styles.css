@@ -10,6 +10,13 @@
     box-sizing: border-box;
 }
 
+/* Resetea el azul por defecto del navegador en todos los enlaces.
+   Sin esto, cualquier <a> sin color propio sale azul, y como el texto
+   interior hereda, se pinta el bloque entero. */
+a {
+    color: inherit;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
